@@ -1,0 +1,35 @@
+[
+  {
+    "id": "seafood-special",
+    "name": "SeaFood Special",
+    "category": "Main Course",
+    "price": "29.99",
+    "image": "seafoods.jpg",
+    "featured": "Fried Salmon Special",
+    "description": "Fresh caught salmon prepared with our signature seasoning and served with seasonal vegetables. A delightful combination of flavors that will transport you to the ocean depths.",
+    "ingredients": ["Fresh Salmon", "Seasonal Vegetables", "Signature Spices", "Lemon Butter Sauce"],
+    "dietary": ["Gluten-Free Available", "High Protein"]
+  },
+  {
+    "id": "sumptuous-desserts",
+    "name": "Sumptuous Desserts",
+    "category": "Dessert",
+    "price": "12.99",
+    "image": "desserts.jpg",
+    "featured": "Choco Ice Cream Sandwich",
+    "description": "Indulgent chocolate ice cream sandwiched between two freshly baked cookies. Topped with chocolate drizzle and served with fresh berries.",
+    "ingredients": ["Premium Ice Cream", "Fresh Baked Cookies", "Belgian Chocolate", "Fresh Berries"],
+    "dietary": ["Vegetarian", "Contains Dairy"]
+  },
+  {
+    "id": "buffet",
+    "name": "Buffet",
+    "category": "All-You-Can-Eat",
+    "price": "39.99",
+    "image": "buffet.jpg",
+    "featured": "Mixed Buffet",
+    "description": "An extensive selection of international cuisines featuring fresh seafood, grilled meats, vegetarian options, and decadent desserts. Perfect for families and groups.",
+    "ingredients": ["International Cuisines", "Fresh Seafood", "Grilled Meats", "Vegetarian Options", "Dessert Station"],
+    "dietary": ["Options for All Diets", "Vegetarian", "Vegan Options", "Gluten-Free Options"]
+  }
+]
