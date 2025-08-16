@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+// Bring in the database
+require('./app_server/models/db');
+
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 var travelRouter = require('./app_server/routes/travel');
@@ -19,7 +22,15 @@ var hbs = require('hbs');
 app.set('views', path.join(__dirname, 'app_server', 'views'));
 app.set('view engine', 'hbs');
 
-hbs.registerPartials(path.join(__dirname, 'app_server/views/partials'));
+// Set the default layout
+app.set('view options', { layout: 'layouts/layout' });
+
+hbs.registerPartials(path.join(__dirname, 'app_server', 'views', 'partials'));
+
+// Register Handlebars helpers
+hbs.registerHelper('eq', function (a, b) {
+    return a === b;
+});
 
 app.use(logger('dev'));
 app.use(express.json());

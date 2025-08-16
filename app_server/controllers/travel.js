@@ -1,12 +1,18 @@
-const fs = require('fs');
+const Trip = require('../models/travlr');
 
-const travel = (req, res) => {
-    var trips = JSON.parse(fs.readFileSync('./data/trips.json', 'utf8'));
-
-    res.render('travel', {
-        title: 'Travlr Getaways',
-        trips: trips
-    });
+const travel = async (req, res) => {
+    try {
+        const trips = await Trip.find({});
+        res.render('travel', {
+            title: 'Travlr Getaways',
+            pageTitle: 'Travel',
+            currentPage: 'travel',
+            trips: trips
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).send('Error retrieving trips');
+    }
 };
 
 module.exports = {
