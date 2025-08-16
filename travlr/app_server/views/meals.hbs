@@ -1,0 +1,27 @@
+<div id="contents">
+	<div class="box">
+		<div>
+			<div class="body">
+							<h1>{{pageTitle}}</h1>
+							<ul id="foods">
+								{{#each meals}}
+								<li>
+									<h2><a href="/meals">{{name}}</a></h2>
+									<div class="infos">
+										<a href="/meals"><img src="/images/{{image}}" alt="{{name}}" height="169" width="780"><span class="cover"></span></a>
+										<p>
+											<span>{{featured}}</span> {{description}}
+										</p>
+										<div class="meal-details">
+											<p><strong>Category:</strong> {{category}}</p>
+											<p><strong>Price:</strong> ${{price}}</p>
+											<p><strong>Dietary Info:</strong> {{#each dietary}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>
+										</div>
+									</div>
+								</li>
+								{{/each}}
+							</ul>
+						</div>
+		</div>
+	</div>
+</div>

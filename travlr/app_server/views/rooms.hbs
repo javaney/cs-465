@@ -1,0 +1,26 @@
+<div id="contents">
+	<div class="box">
+		<div>
+			<div class="body">
+							<h1>{{pageTitle}}</h1>
+							<ul id="rooms">
+								{{#each rooms}}
+								<li>
+									<a href="/rooms"><img src="/images/{{image}}" alt="{{name}}"></a>
+									<h2><a href="/rooms">{{name}}</a></h2>
+									<p>{{description}}</p>
+									<div class="room-details">
+										<p><strong>Type:</strong> {{type}}</p>
+										<p><strong>Capacity:</strong> {{capacity}}</p>
+										<p><strong>Size:</strong> {{size}}</p>
+										<p><strong>Availability:</strong> {{availability}}</p>
+									</div>
+									<span class="rate">Rate: ${{rate}} / Day</span>
+								</li>
+								{{/each}}
+							</ul>
+						</div>
+					</div>
+				</div>
+	</div>
+</div>

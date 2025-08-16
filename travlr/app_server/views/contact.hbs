@@ -1,0 +1,61 @@
+<div id="contents">
+	<div class="box">
+		<div>
+			<div id="contact" class="body">
+							<h1>{{pageTitle}}</h1>
+							<form action="/" method="post">
+								<table>
+									<tbody>
+										<tr>
+											<td>Name:</td>
+											<td><input type="text" value="" class="txtfield" name="name" required></td>
+										</tr>
+										<tr>
+											<td>Email:</td>
+											<td><input type="email" value="" class="txtfield" name="email" required></td>
+										</tr>
+										<tr>
+											<td>Subject:</td>
+											<td><input type="text" value="" class="txtfield" name="subject" required></td>
+										</tr>
+										<tr>
+											<td class="txtarea">Message:</td>
+											<td><textarea name="message" required></textarea></td>
+										</tr>
+										<tr>
+											<td></td>
+											<td><input type="submit" value="" class="btn"></td>
+										</tr>
+									</tbody>
+								</table>
+							</form>
+							
+							<h2>{{company.name}}</h2>
+							<p><em>{{company.tagline}}</em></p>
+							<p>{{company.description}}</p>
+							
+							<h3>Contact Information</h3>
+							<p><span>Address:</span> {{contact.address.street}}, {{contact.address.city}}, {{contact.address.state}} {{contact.address.zipCode}}</p>
+							<p><span>Main Phone:</span> {{contact.phone.main}}</p>
+							<p><span>Reservations:</span> {{contact.phone.reservations}}</p>
+							<p><span>Fax:</span> {{contact.fax}}</p>
+							<p><span>Email:</span> {{contact.email.general}}</p>
+							
+							<h3>Departments</h3>
+							{{#each departments}}
+							<div class="department">
+								<h4>{{name}}</h4>
+								<p>{{description}}</p>
+								<p><strong>Phone:</strong> {{phone}} | <strong>Email:</strong> {{email}}</p>
+							</div>
+							{{/each}}
+							
+							<h3>Business Hours</h3>
+							<p><strong>Reception:</strong> {{hours.reception.weekdays}} (All week)</p>
+							<p><strong>Reservations:</strong> {{hours.reservations.weekdays}} (Mon-Fri), {{hours.reservations.weekends}} (Weekends)</p>
+							<p><strong>Activities:</strong> {{hours.activities.weekdays}} (Mon-Fri), {{hours.activities.weekends}} (Weekends)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
