@@ -3,10 +3,11 @@ const fs = require('fs');
 const meals = (req, res) => {
     var mealsData = JSON.parse(fs.readFileSync('./data/meals.json', 'utf8'));
     
-    res.render('meals', { 
+    res.render('meals', {
         title: 'Travlr Getaways',
         pageTitle: 'Meals',
-        meals: mealsData 
+        currentPage: 'meals',
+        meals: mealsData
     });
 };
 

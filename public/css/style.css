@@ -1,11 +1,11 @@
 /* Website template by freewebsitetemplates.com */
 body {
-	background: #ffb744 url(../images/bg-body.jpg) repeat left bottom;
+	background: #ffb744 url(/images/bg-body.jpg) repeat left bottom;
 	font-family: "Times New Roman", Times, serif;
 	margin: 0;
 }
 #background {
-	background: url(../images/bg-pattern.jpg) repeat-x center top;
+	background: url(/images/bg-pattern.jpg) repeat-x center top;
 	min-height: 1318px;
 }
 #page {
@@ -17,15 +17,15 @@ img {
 }
 /*------------------------------ Sprites ------------------------------*/
 #navigation li, #navigation li a:hover, #navigation li.selected a {
-	background-image: url(../images/bg-menu.png);
+	background-image: url(/images/bg-menu.png);
 	background-repeat: repeat-x;
 }
 #contents div.box, #contents div.box > div, #contents div.body {
-	background-image: url(../images/content-box.png);
+	background-image: url(/images/content-box.png);
 	background-repeat: no-repeat;
 }
 #main div.box, #main div.box > div, #main div.box > div > div {
-	background-image: url(../images/bg-box.png);
+	background-image: url(/images/bg-box.png);
 	background-repeat: no-repeat;
 }
 /*------------------------------ HEADER ------------------------------*/
@@ -41,7 +41,7 @@ img {
 }
 /** Navigation **/
 #navigation {
-	background: url(../images/bg-navigation.png) no-repeat;
+	background: url(/images/bg-navigation.png) no-repeat;
 	clear: both;
 	height: 50px;
 	width: 860px;

@@ -3,9 +3,10 @@ const fs = require('fs');
 const contact = (req, res) => {
     var contactData = JSON.parse(fs.readFileSync('./data/contact.json', 'utf8'));
     
-    res.render('contact', { 
+    res.render('contact', {
         title: 'Travlr Getaways',
         pageTitle: 'Contact',
+        currentPage: 'contact',
         company: contactData.companyInfo,
         contact: contactData.contactDetails,
         hours: contactData.businessHours,
