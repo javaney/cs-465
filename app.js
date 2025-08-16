@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 // Bring in the database
 require('./app_server/models/db');
+require('./app_api/models/db');
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
@@ -15,6 +16,7 @@ var mealsRouter = require('./app_server/routes/meals');
 var roomsRouter = require('./app_server/routes/rooms');
 var newsRouter = require('./app_server/routes/news');
 var contactRouter = require('./app_server/routes/contact');
+var apiRouter = require('./app_api/routes/index');
 
 var app = express();
 
@@ -46,6 +48,7 @@ app.use('/meals', mealsRouter);
 app.use('/rooms', roomsRouter);
 app.use('/news', newsRouter);
 app.use('/contact', contactRouter);
+app.use('/', apiRouter);
 
 app.use(function(req, res, next) {
   next(createError(404));
