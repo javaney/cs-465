@@ -1,0 +1,91 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <h1>Edit Trip</h1>
+
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="_id">
+
+        <div class="mb-3">
+          <label for="code" class="form-label">Trip Code</label>
+          <input type="text" class="form-control" id="code" formControlName="code"
+                 [class.is-invalid]="submitted && f['code'].errors">
+          <div *ngIf="submitted && f['code'].errors" class="invalid-feedback">
+            <div *ngIf="f['code'].errors['required']">Trip code is required</div>
+            <div *ngIf="f['code'].errors['minlength']">Trip code must be at least 3 characters</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Trip Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name"
+                 [class.is-invalid]="submitted && f['name'].errors">
+          <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+            <div *ngIf="f['name'].errors['required']">Trip name is required</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="length" class="form-label">Length</label>
+          <input type="text" class="form-control" id="length" formControlName="length"
+                 [class.is-invalid]="submitted && f['length'].errors">
+          <div *ngIf="submitted && f['length'].errors" class="invalid-feedback">
+            <div *ngIf="f['length'].errors['required']">Length is required</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="start" class="form-label">Start Date</label>
+          <input type="date" class="form-control" id="start" formControlName="start"
+                 [class.is-invalid]="submitted && f['start'].errors">
+          <div *ngIf="submitted && f['start'].errors" class="invalid-feedback">
+            <div *ngIf="f['start'].errors['required']">Start date is required</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="resort" class="form-label">Resort</label>
+          <input type="text" class="form-control" id="resort" formControlName="resort"
+                 [class.is-invalid]="submitted && f['resort'].errors">
+          <div *ngIf="submitted && f['resort'].errors" class="invalid-feedback">
+            <div *ngIf="f['resort'].errors['required']">Resort is required</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="perPerson" class="form-label">Price per Person</label>
+          <input type="number" class="form-control" id="perPerson" formControlName="perPerson"
+                 [class.is-invalid]="submitted && f['perPerson'].errors">
+          <div *ngIf="submitted && f['perPerson'].errors" class="invalid-feedback">
+            <div *ngIf="f['perPerson'].errors['required']">Price is required</div>
+            <div *ngIf="f['perPerson'].errors['min']">Price must be greater than 0</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input type="text" class="form-control" id="image" formControlName="image"
+                 [class.is-invalid]="submitted && f['image'].errors">
+          <div *ngIf="submitted && f['image'].errors" class="invalid-feedback">
+            <div *ngIf="f['image'].errors['required']">Image is required</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" id="description" rows="3" formControlName="description"
+                    [class.is-invalid]="submitted && f['description'].errors"></textarea>
+          <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+            <div *ngIf="f['description'].errors['required']">Description is required</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <button type="submit" class="btn btn-primary me-2">Update Trip</button>
+          <button type="button" class="btn btn-danger me-2" (click)="onDelete()">Delete Trip</button>
+          <a routerLink="/" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -38,7 +38,7 @@ const tripSchema = new mongoose.Schema({
     }
 });
 
-// Compile the schema into a model
-const Trip = mongoose.model('Trip', tripSchema);
+// Compile the schema into a model, avoiding overwrite error
+const Trip = mongoose.models.Trip || mongoose.model('Trip', tripSchema);
 
 module.exports = Trip;
