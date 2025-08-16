@@ -1,8 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1>Trip Listing</h1>
-      <p>There are {{trips.length}} trips available.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h1>Trip Listing</h1>
+          <p>There are {{trips.length}} trips available.</p>
+        </div>
+        <button (click)="addTrip()" class="btn btn-success" *ngIf="isLoggedIn()">
+          Add New Trip
+        </button>
+      </div>
       <div *ngIf="message" class="alert alert-warning">{{message}}</div>
     </div>
   </div>

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { TripCard } from '../trip-card/trip-card';
 import { TripDataService, Trip } from '../services/trip-data';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-trip-listing',
@@ -13,7 +15,11 @@ export class TripListing implements OnInit {
   trips: Trip[] = [];
   message: string = '';
 
-  constructor(private tripDataService: TripDataService) {}
+  constructor(
+    private tripDataService: TripDataService,
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     console.log('TripListing component initialized');
@@ -32,5 +38,13 @@ export class TripListing implements OnInit {
           this.message = 'Error loading trips. Please try again later.';
         }
       });
+  }
+
+  isLoggedIn(): boolean {
+    return this.authenticationService.isLoggedIn();
+  }
+
+  addTrip(): void {
+    this.router.navigate(['/add-trip']);
   }
 }
