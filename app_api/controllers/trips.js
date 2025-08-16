@@ -57,8 +57,70 @@ const tripsFindCode = async (req, res) => {
     }
 };
 
+// POST: /api/trips - add a new trip
+const tripsAddTrip = async (req, res) => {
+    try {
+        const newTrip = new Trip(req.body);
+        const savedTrip = await newTrip.save();
+        res.status(201).json(savedTrip);
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({
+            "message": "Error creating trip",
+            "error": err.message
+        });
+    }
+};
+
+// PUT: /api/trips/:tripcode - update a trip by code
+const tripsUpdateTrip = async (req, res) => {
+    try {
+        const trip = await Trip.findOneAndUpdate(
+            { 'code': req.params.tripcode },
+            req.body,
+            { new: true, runValidators: true }
+        );
+        if (!trip) {
+            return res.status(404).json({
+                "message": "Trip not found"
+            });
+        }
+        res.status(200).json(trip);
+    } catch (err) {
+        console.log(err);
+        res.status(400).json({
+            "message": "Error updating trip",
+            "error": err.message
+        });
+    }
+};
+
+// DELETE: /api/trips/:tripcode - delete a trip by code
+const tripsDeleteTrip = async (req, res) => {
+    try {
+        const trip = await Trip.findOneAndDelete({ 'code': req.params.tripcode });
+        if (!trip) {
+            return res.status(404).json({
+                "message": "Trip not found"
+            });
+        }
+        res.status(200).json({
+            "message": "Trip deleted successfully"
+        });
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({
+            "message": "Error deleting trip",
+            "error": err.message
+        });
+    }
+};
+
 module.exports = {
     tripsList,
     tripsReadOne,
-    tripsFindCode
+    tripsFindCode,
+    tripsAddTrip,
+    tripsUpdateTrip,
+    tripsDeleteTrip
 };
