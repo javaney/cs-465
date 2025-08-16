@@ -7,6 +7,6 @@
       {{trip.length}} only ${{trip.perPerson}} per person
     </p>
     <p class="card-text" [innerHTML]="trip.description"></p>
-    <button (click)="editTrip(trip)" class="btn btn-primary btn-sm">Edit Trip</button>
+    <button (click)="editTrip(trip)" class="btn btn-primary btn-sm" *ngIf="isLoggedIn()">Edit Trip</button>
   </div>
 </div>

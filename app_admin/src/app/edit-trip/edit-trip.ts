@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { TripDataService, Trip } from '../services/trip-data';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-edit-trip',
@@ -19,10 +20,17 @@ export class EditTrip implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
-    private tripDataService: TripDataService
+    private tripDataService: TripDataService,
+    private authenticationService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
+    // Check authentication before allowing access
+    if (!this.authenticationService.isLoggedIn()) {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     this.tripCode = this.route.snapshot.params['id'];
 
     this.editForm = this.formBuilder.group({
